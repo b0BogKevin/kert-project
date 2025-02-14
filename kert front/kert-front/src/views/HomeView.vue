@@ -11,6 +11,15 @@ const loadAll = () => {
 onMounted(()=>{
   loadAll()
 })
+const del = ()=>{
+  fetch("http://localhost:3000/plants",
+    {
+        method:"DEELTE",
+    })
+    .then(resp => resp.json())
+    .then(data => novenyek.value = data)
+loadAll()
+}
 </script>
 
 <template>
@@ -21,6 +30,7 @@ onMounted(()=>{
   <div v-if="n.evelo">Évelő</div>
   <div v-else>Nem évelő</div>
   <div>{{ n.tipus }}</div> 
+  <button v-on:click="del">Törlés</button>
  </div>
 </div>
 

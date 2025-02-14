@@ -4,6 +4,7 @@ import cors from "cors"
 
 const app = express();
 app.use(cors())
+app.use(express.json());
 const db = new sqlite3.Database("./database.sqlite") 
 function dbQuery(sql, params = []) {
     return new Promise((resolve, reject) => {

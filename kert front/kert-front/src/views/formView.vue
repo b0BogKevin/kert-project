@@ -1,5 +1,5 @@
 <template>
-<form action="">
+
     <input v-model="name" type="text" name="name" id="" placeholder="Név">
     <select v-model="tipus" name="tipus" id="">
         <option value="fa">Fa</option>
@@ -9,7 +9,7 @@
     <input type="checkbox" name="" v-model="evelo" id="">
     <input v-model="ar" type="number" name="name" id="" placeholder="Ár">
     <button v-on:click="send">Küldés</button>
-</form>
+
 </template>
 <script setup>
 import { ref } from 'vue';
@@ -30,13 +30,12 @@ const send = ()=>{
                 evelo:evelo.value,
                 ar:ar.value
             }
-        ),
+        ),  
         headers: {
         "Content-type": "application/json; charset=UTF-8"
         }
 
     })
     .then(resp => resp.json())
-    .then(data => novenyek.value = data)
 }
 </script>
